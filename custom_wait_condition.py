@@ -13,12 +13,13 @@ dr = webdriver.Chrome(executable_path=r"D:\Python&Selenium\selenium\chromedriver
 
 
 class present_posts_displayed:
+
     def __init__(self, locator, number):
         self.locator = locator
         self.number = number
 
     def __call__(self, driver):
-        posts = dr.find_elements(*self.locator)
+        posts = driver.find_elements(*self.locator)
         if len(posts) == self.number:
             return posts
         else:

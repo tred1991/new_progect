@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import expected_conditions as EC
 
 @pytest.fixture()
 def driver():
@@ -11,9 +12,9 @@ def driver():
     yield driver
     driver.quit()
 
-@pytest.fixture()
-def wait():
-    return WebDriverWait(driver=driver, timeout=10)
+# @pytest.fixture()
+# def wait():
+#     return WebDriverWait(driver=driver, timeout=20)
 
 @pytest.fixture()
 def login(driver):
@@ -30,3 +31,5 @@ def login(driver):
 
     submit_btn = driver.find_element(By.NAME, "submit")
     submit_btn.click()
+
+    #base_dashboard active
